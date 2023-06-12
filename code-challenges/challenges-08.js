@@ -107,12 +107,19 @@ const getInfo = (arr) => {
   let studentsName = [];
   // write your code here
 for (const obj of arr){
-  for (property in obj){
-    coursesName.push(obj.course)
+  for ( const property in obj){
+    if (property=='course') {
+      coursesName.push(obj[property])
+    }
+      
+    if (property=='Students') {
+      for (const iterator of obj[property]) {
+        studentsName.push(obj[property])
+      }
+    }
+    
   }
-  for (const iterator of obj.Students) {
-    studentsName.push(obj.Students)
-  }
+  
 }
   return { coursesName, studentsName };
 };
@@ -137,20 +144,24 @@ for (const obj of arr){
 
 const getStudents = (arr) => {
   // write your code here
-  let object={}
+  let arr1=[]
   for (const i of arr) {
-    
   for (const obj of courses){
-    for (const iterator of obj.Students) {
-      if (iterator==arr[i]) {object.student=arr[i];
-        object.course=obj.course
-        
-      }
+    for (const property of courses)
+    if (property=='Students') {
+      for (const iterator of obj[property]) {
+        let object={}
+        if (iterator==arr[i]) {object.student=arr[i];
+          object.course=obj["course"]
+          arr1.push(object)
+        } 
+    }
+
       
     }    
   }
 }
-
+return arr1
 };
 
 //  ------------------------------------------------------------------------------------------------------

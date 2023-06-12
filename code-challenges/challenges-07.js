@@ -135,8 +135,9 @@ const applicationsStatics = (arr) => {
     // write your code here
     //for to loop inside the array
     let rejucts=0
+    let result={}
     for (let i = 0; i < arr.length; i++) {
-        let result={}
+        
         switch (this.tech) {
             case "Python":
                 if (result.hasOwnProperty(python_devs)) {
@@ -180,8 +181,10 @@ const applicationsStatics = (arr) => {
 
         
     
-    result.prototype.totalApplicants=arr.length;
-    result.prototype.rejectedApplicants=rejucts;
+    result.totalApplicants=arr.length;
+    result.rejectedApplicants=rejucts;
+    console.log(result);
+    return result
 };
 // -------------------------------------------------------------------------------------------------------
 
@@ -310,14 +313,15 @@ let data = {
 const classesAvg = (data) => {
     // write your code here
     
-for (let i = 0; i < data.grades?.length; i++) {
+for (let i = 0; i < data.grades.length; i++) {
       for (let j = 0; j < data.grades[i].classes.length; j++) {
         let sum =0;
         for (let k = 0; k < data.grades[i].classes[j].classScores.length; k++) {
             
             
         }
-        data.grades[i].classes[j].avg=sum/data.grades[i].classes[j].classScores.length
+        console.log(data.grades[i].classes[j].avg=sum/data.grades[i].classes[j].classScores.length)
+    data.grades[i].classes[j].avg=sum/data.grades[i].classes[j].classScores.length
         
       }
     
