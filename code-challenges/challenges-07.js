@@ -133,11 +133,9 @@ const cvFormatter = (arr) => {
 
 const applicationsStatics = (arr) => {
     // write your code here
-    //for to loop inside the array
     let rejucts=0
     let result={}
     for (let i = 0; i < arr.length; i++) {
-        
         switch (this.tech) {
             case "Python":
                 if (result.hasOwnProperty(python_devs)) {
@@ -171,13 +169,12 @@ const applicationsStatics = (arr) => {
                     result.prototype.java_devs=1
                     }
                 break;}
-        if (arr[i].yearsOfExperience>=2){
-            if(arr[i].firstName && arr[i].lastName){
-            }}
-            else{
-                rejucts+=1;
-            }    
+        if (arr[i].yearsOfExperience<=2){
+            rejucts+=1
         }
+        if((!arr[i].firstName) && (!arr[i].lastName)){
+            rejucts+=1
+        }}  
 
         
     
@@ -312,21 +309,20 @@ let data = {
 
 const classesAvg = (data) => {
     // write your code here
-    
-for (let i = 0; i < data.grades.length; i++) {
-      for (let j = 0; j < data.grades[i].classes.length; j++) {
-        let sum =0;
-        for (let k = 0; k < data.grades[i].classes[j].classScores.length; k++) {
-            
-            
+ for (let i = 0; i < data.grades.length; i++) {
+    for (let k = 0; k < data.grades[i].classes.length; k++) {
+    let sum=0    
+    let num=data.grades[i].classes[k].classScores.length
+        for (let j = 0; j < data.grades[i].classes[k].classScores.length; j++) {
+            sum=+data.grades[i].classes[k].classScores[j]
         }
-        console.log(data.grades[i].classes[j].avg=sum/data.grades[i].classes[j].classScores.length)
-    data.grades[i].classes[j].avg=sum/data.grades[i].classes[j].classScores.length
-        
-      }
+        data.grades[i].classes[k].avg=sum/num    
+    }
+ }   
+
     
-}
 };
+
 // -------------------------------------------------------------------------------------------------------
 
 module.exports = { objLat, cvFormatter, applicationsStatics, classesAvg };
