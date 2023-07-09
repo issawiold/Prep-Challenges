@@ -215,6 +215,17 @@ function gradesAvg(arr) {
 
 function studentsResult(arr) {
     // write your code here
+    console.log(arr)
+    arr.map(x=>{
+        if (x.avg>=50){
+        x.result='Passed'}
+        else{
+            x.result='Failed'
+        }
+    })
+    console.log(arr);
+    return arr
+
 }
 // -------------------------------------------------------------------------------------------------------
 

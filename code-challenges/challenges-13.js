@@ -40,8 +40,8 @@
 
 const objectCounter = (obj) => {
     // write your code here
-    let b; 
-    b= obj.reduce((sum)=>sum+1,0)
+    let b;
+    b = obj.reduce((sum) => sum + 1, 0)
     return b
 
 }
@@ -64,9 +64,9 @@ const objectCounter = (obj) => {
 
 const stringReverse = (str) => {
     // write your code here
-    let arr=str.split(" ")
-    let arr1=arr.reduce((a, b) => [b, ...a], [])
-    let str1=arr1.join(' ')
+    let arr = str.split(" ")
+    let arr1 = arr.reduce((a, b) => [b, ...a], [])
+    let str1 = arr1.join(' ')
     //hello
     return str1
 }
@@ -113,6 +113,19 @@ const stringReverse = (str) => {
 
 const statistics = (obj) => {
     // write your code here
+    let res = obj.reduce((votes, voters) => {
+        const vote = voters.votes_To
+        if (votes[vote] == null) {
+            votes[vote] = 1
+        } else {
+            votes[vote] += 1
+
+        }
+        console.log(votes);
+        return votes
+
+    },{})
+    return res
 }
 // -------------------------------------------------------------------------------------------------------
 
