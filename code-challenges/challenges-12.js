@@ -133,6 +133,19 @@ const vowelsFiltration = (arr) => {
 
 const skillComparison = (arr1, arr2) => {
     // write your code here
+ let arr=arr1.filter(a=>{if(!arr2.includes(a)){
+    return a}
+})
+ let arr3=arr2.filter(a=>{if(!arr1.includes(a)){
+    return a
+ }
+    
+    
+        
+    
+    
+  })
+  return [...arr,...arr3]
 }
 // -------------------------------------------------------------------------------------------------------
 

@@ -22,8 +22,8 @@
 
 const objLat = (obj) => {
     // write your code here
-    obj.firstName=obj.firstName.charAt(0).toUpperCase() + obj.firstName.slice(1);
-    obj.lastName=obj.lastName.charAt(0).toUpperCase() + obj.lastName.slice(1);
+    obj.firstName = obj.firstName.charAt(0).toUpperCase() + obj.firstName.slice(1);
+    obj.lastName = obj.lastName.charAt(0).toUpperCase() + obj.lastName.slice(1);
     return `my name is ${obj.firstName} ${obj.lastName} I am ${obj.age} YO, and I love ${obj.hobby}.`
 };
 // -------------------------------------------------------------------------------------------------------
@@ -90,24 +90,24 @@ const objLat = (obj) => {
 const cvFormatter = (arr) => {
     //Loop through the values empty array to catch outcome
     let arr1 = [];
-    for(let i=0;i<arr.length;++i ){
-        if(arr[i].yearsOfExperience > 1 ){
-            let object = { };
-            if (arr[i].lastName==null)
-            {
+    for (let i = 0; i < arr.length; ++i) {
+        if (arr[i].yearsOfExperience > 1) {
+            let object = {};
+            if (arr[i].lastName == null) {
                 object.fullName = arr[i].firstName;
-                }
-            else if(arr[i].firstName==null)
-            {
-                object.fullName = arr[i].lastName;}
-            else
-            {
-                object.fullName = `${arr[i].firstName} ${arr[i].lastName}`;}
-                object.tech = arr[i].tech;
-                arr1.push(object);
+            }
+            else if (arr[i].firstName == null) {
+                object.fullName = arr[i].lastName;
+            }
+            else {
+                object.fullName = `${arr[i].firstName} ${arr[i].lastName}`;
+            }
+            object.tech = arr[i].tech;
+            arr1.push(object);
         }
     }
-    return arr1;}
+    return arr1;
+}
 // -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
@@ -133,53 +133,58 @@ const cvFormatter = (arr) => {
 
 const applicationsStatics = (arr) => {
     // write your code here
-    let rejucts=0
-    let result={}
+    let rejucts = 0
+    let result = {}
     for (let i = 0; i < arr.length; i++) {
-        switch (this.tech) {
-            case "Python":
-                if (result.hasOwnProperty(python_devs)) {
-                    result.python_devs+=1
-                }
-                else{
-                    result.prototype.python_devs=1
-                }
-                break;
-            case "javaScript":
-                if (result.hasOwnProperty(javaScript_devs)) {
-                    result.javaScript_devs+=1
-                }
-                else{
-                    result.prototype.javaScript_devs=1
-                    }
-                break;
+        console.log(arr[i].tech);
+        switch (arr[i].tech) {
             case ".Net":
-                if (result.hasOwnProperty(dotNet_devs)) {
-                    result.dotNet_devs+=1
+                if (result["dotNet_devs"] == null) {
+                    result["dotNet_devs"] = 1
                 }
-                else{
-                    result.prototype.dotNet_devs=1
-                    }
+                else {
+                    result["dotNet_devs"] += 1
+                }
                 break;
-            case "java":
-                if (result.hasOwnProperty(java_devs)) {
-                    result.java_devs+=1
+            case "JS":
+                if (result["javaScript_devs"] == null) {
+                    result["javaScript_devs"] = 1
                 }
-                else{
-                    result.prototype.java_devs=1
-                    }
-                break;}
-        if (arr[i].yearsOfExperience<=2){
-            rejucts+=1
+                else {
+                    result["javaScript_devs"] += 1
+                }
+                break;
+            case "Java":
+                if (result["java_devs"] == null) {
+                    result["java_devs"] = 1
+                }
+                else {
+                    result["java_devs"] += 1
+                }
+                break;
+            case "Python":
+                if (result['python_devs'] == null) {
+                    result["python_devs"] = 1
+                }
+                else {
+                    result["python_devs"] += 1
+                }
+                break;
         }
-        if((!arr[i].firstName) && (!arr[i].lastName)){
-            rejucts+=1
-        }}  
 
-        
-    
-    result.totalApplicants=arr.length;
-    result.rejectedApplicants=rejucts;
+        if (arr[i].yearsOfExperience <= 2) {
+            rejucts += 1
+        }
+        if ((!arr[i].firstName) && (!arr[i].lastName)) {
+            rejucts += 1
+        }
+    }
+
+
+
+    result["rejectedApplicants"] = rejucts;
+    result["totalApplicants"] = arr.length;
+
     console.log(result);
     return result
 };
@@ -309,18 +314,18 @@ let data = {
 
 const classesAvg = (data) => {
     // write your code here
- for (let i = 0; i < data.grades.length; i++) {
-    for (let k = 0; k < data.grades[i].classes.length; k++) {
-    let sum=0    
-    let num=data.grades[i].classes[k].classScores.length
-        for (let j = 0; j < data.grades[i].classes[k].classScores.length; j++) {
-            sum=+data.grades[i].classes[k].classScores[j]
+    for (let i = 0; i < data.grades.length; i++) {
+        for (let k = 0; k < data.grades[i].classes.length; k++) {
+            let sum = 0
+            let num = data.grades[i].classes[k].classScores.length
+            for (let j = 0; j < data.grades[i].classes[k].classScores.length; j++) {
+                sum = +data.grades[i].classes[k].classScores[j]
+            }
+            data.grades[i].classes[k].avg = sum / num
         }
-        data.grades[i].classes[k].avg=sum/num    
     }
- }   
 
-    
+
 };
 
 // -------------------------------------------------------------------------------------------------------

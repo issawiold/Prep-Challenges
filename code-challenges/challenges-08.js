@@ -145,24 +145,27 @@ for (const obj of arr){
 const getStudents = (arr) => {
   // write your code here
   let arr1=[]
-  for (const i of arr) {
+  for (let name of arr){
   for (const obj of courses){
-    for (const property of courses)
-    if (property=='Students') {
-      for (const iterator of obj[property]) {
+    
+      for (const iterator of obj["Students"]) {
         let object={}
-        if (iterator==arr[i]) {object.student=arr[i];
-          object.course=obj["course"]
-          arr1.push(object)
-        } 
+        
+        if (iterator===name)
+        {object["Student"]=name;
+          object["course"]=obj["course"]
+          arr1.push(object)}
+          console.log(name);
+        }
+
     }
 
-      
     }    
-  }
+  console.log(arr1);
+  return arr1
+
 }
-return arr1
-};
+
 
 //  ------------------------------------------------------------------------------------------------------
 
