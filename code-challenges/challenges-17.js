@@ -18,6 +18,11 @@ const recursionPattern = (int1, int2) => {
     // write your code here
     //this is really a hard one so I'm affraid I have to admit defeat 
     //I rather use data analysis to solve this question
+        if (int1 <= 0)
+        {
+            return [int1];
+        }
+        return [int1].concat(recursionPattern(int1 - int2, int2), [int1]);
 }
 // -------------------------------------------------------------------------------------------------------
 
